@@ -10,64 +10,65 @@ const TopBarStyle = styled.div`
   position: fixed;
   height: 44px;
   background-color: #333;
-  .container {
-    width: 100%;
-    display: flex;
-    justify-content: none;
-    align-items: none;
-    flex-direction: row;
-    color: #fff;
-    letter-spacing: 1px;
-    padding: 0 10px;
-  }
-  .container-left {
-    cursor: pointer;
-    margin-right: 25%;
-    font-weight: bold;
-  }
-  .container-left span {
-    cursor: pointer;
-    margin-right: 25%;
-    font-weight: bold;
-  }
-  .container-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex: 3;
-    font-size: 9px;
-  }
-  .container-center span {
-    cursor: pointer;
-    margin-right: 5%;
-  }
-  .container-center span:last-child {
-    margin-right: 0;
-  }
-  .container-center span:hover {
-    text-decoration: underline;
-  }
-  .container-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: row;
-    flex: 1;
-    font-size: 11px;
-    font-weight: bold;
-  }
-  .container-right span {
-    cursor: pointer;
-  }
-  @media (min-width: 1280px) {
-    .header {
-      width: 1280px;
-    }
+`
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: none;
+  align-items: none;
+  flex-direction: row;
+  color: #fff;
+  letter-spacing: 1px;
+  padding: 0 10px;
   @media (min-width: 1280px) {
     TopBarStyle .container {
       width: 1280px;
     }
+  }
+`
+
+const ContainerLeft = styled.div`
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+  font-size: 11px;
+  span {
+    cursor: pointer;
+    margin-right: 25%;
+    font-weight: bold;
+  }
+`
+const ContainerCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex: 3;
+  font-size: 9px;
+  span {
+    cursor: pointer;
+    margin-right: 5%;
+  }
+  span:last-child {
+    margin-right: 0;
+  }
+  span:hover {
+    text-decoration: underline;
+  }
+`
+
+const ContainerRight = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+  font-size: 11px;
+  font-weight: bold;
+  span {
+    cursor: pointer;
   }
 `
 // Refactor this component to use styled components and not classNames. 
@@ -76,17 +77,17 @@ const TopBarStyle = styled.div`
 const TopBar = () => {
   return (
     <TopBarStyle>
-      <div className="container">
-        <div className="container-left">
+      <Container>
+        <ContainerLeft>
           <span>TOPICS</span><span>SEARCH</span>
-        </div>
-        <div className="container-center">
+        </ContainerLeft>
+        <ContainerCenter>
           <span>GENERAL</span><span>BROWNBAG</span><span>RANDOM</span><span>MUSIC</span><span>ANNOUNCEMENTS</span>
-        </div>
-        <div className="container-right">
+        </ContainerCenter>
+        <ContainerRight>
           <span>LOG IN</span>
-        </div>
-      </div>
+        </ContainerRight>
+      </Container>
     </TopBarStyle>
   )
 }
